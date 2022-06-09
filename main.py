@@ -1,4 +1,5 @@
 # AS91896 / AS91897
+
 '''
 
 Julie's Party Hire
@@ -11,7 +12,6 @@ The program also allows a group to delete their row by choosing which row
 to delete if they are moving on.
 
 '''
-
 
 # import tkinter
 
@@ -26,3 +26,15 @@ to delete if they are moving on.
 
 
 # store input from the user
+
+
+# check validty of user inputs
+
+
+# delete selected rows
+
+
+# create buttons and labels
+
+
+# running the program
