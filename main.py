@@ -1,5 +1,6 @@
 # AS91896 / AS91897
 
+
 '''
 
 Julie's Party Hire
@@ -13,28 +14,100 @@ to delete if they are moving on.
 
 '''
 
-# import tkinter
+
+# Import Tkinter and Submodules
+from tkinter import *
+from tkinter import ttk
 
 
-# submodule of tkinter 
+# Program settings
+root = Tk()
+root.title("Julie's Party Hire List")
+root.geometry("800x600")
 
 
-# subroutine to quit the program
+# Define customized fonts
 
 
-# print all data stored on the list
+# Start Page 
 
 
-# store input from the user
+#  ↳ Define START 
+
+#  ↳ Create label to display name of the program
+
+#  ↳ Create start button
 
 
-# check validty of user inputs
 
 
-# delete selected rows
+# Create a ttk.Treeview widget 
 
 
-# create buttons and labels
+#  ↳ Selecting a theme 
+
+#  ↳ Create columns for the Treeview function
+
+#  ↳ Format columns
+
+#  ↳ Create headings
 
 
-# running the program
+# Define a frame for displaying entry boxes
+
+
+#  ↳ Create labels
+
+#  ↳ Create entry boxes
+
+
+# Append Button
+
+
+#  ↳ Define append_details
+
+#  ↳ Add append button
+
+
+# Print Button
+
+
+#  ↳ Define print_details
+
+#  ↳ Add print button
+
+
+# Remove selected rows button
+
+
+#  ↳ Define remove_selected
+
+#  ↳ Add remove selection button
+
+#  ↳ Add messagebox to warn user
+
+
+# Remove ALL rows button
+
+
+#  ↳ Define remove_all
+
+#  ↳ Add remove ALL button
+
+#  ↳ Add messagebiox to warn user
+
+
+# Quit Button
+
+
+#  ↳ Define quit
+
+#  ↳ Add quit button
+
+#  ↳ Add messagebox to warn user
+
+
+# Run the program
+root.mainloop()
+
+
