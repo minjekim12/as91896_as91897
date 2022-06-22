@@ -16,6 +16,7 @@ to delete if they are moving on.
 
 
 # Import Tkinter and Submodules
+from itertools import count
 from os import remove
 from this import d
 from tkinter import *
@@ -31,6 +32,9 @@ root = Tk()
 root.title("Julie's Party Hire List")
 root.geometry("800x600")
 
+count = 0
+
+
 
 # Define customized fonts
 
@@ -39,7 +43,7 @@ root.geometry("800x600")
 
 
 #  ↳ Define START 
-def start():
+"""def start():
     NONE
     # I left this command to do nothing for now. 
 
@@ -50,7 +54,7 @@ start_image = PhotoImage(file="Resources/start2.png")
 
 #  ↳ Create start button
 start_button = Button(root, image=start_image, command=start, height=95, width=225)
-start_button.pack(pady=220)
+start_button.pack(pady=220)"""
     # TODO: Place the start button lower on the screen without cutting off any of the image
 
 # Create a treeview widget
@@ -114,7 +118,9 @@ quantity_box.grid(row=1, column=3)
 # Append Button
 
 
+
 #  ↳ Define append_details
+
 
 #  ↳ Add append button
 
@@ -124,8 +130,23 @@ quantity_box.grid(row=1, column=3)
 
 #  ↳ Define print_details
 
-#  ↳ Add print button
+def add_record():
+    global count
+    tree.insert(parent='', index='end', iid=count, text=" ", values=(name_box.get(), reciept_box.get(), item_box.get(), quantity_box.get()))
+    count += 1
 
+    # clear boxes
+    name_box.delete(0, END)
+    reciept_box.delete(0, END)
+    item_box.delete(0, END)
+    quantity_box.delete(0, END)
+# remove all records
+
+
+
+#  ↳ Add print button
+print_button = Button(root, text="Add Record", command=add_record)
+print_button.pack(pady=20)
 
 # Remove selected rows button
 
