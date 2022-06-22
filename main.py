@@ -85,14 +85,31 @@ tree.heading("Quantity", text="Quantity")
 tree.pack(pady=20)
 
 # Define a frame for displaying entry boxes
-
-
+add_frame = Frame(root)
+add_frame.pack()
 
 #  ↳ Create labels
+nl = Label(add_frame, text="Full Name", font="Helvetica") # nl = Name Label
+nl.grid(row=0, column=0)
 
+rl = Label(add_frame, text="Reciept Number", font="Helvetica")
+rl.grid(row=0, column=1)
+
+il = Label(add_frame, text="Item", font="Helvetica")
+il.grid(row=0, column=2)
+
+ql = Label(add_frame, text="Quantity", font="Helvetica")
+ql.grid(row=0, column=3)
 
 #  ↳ Create entry boxes
-
+name_box = Entry(add_frame)
+name_box.grid(row=1, column=0)
+reciept_box = Entry(add_frame)
+reciept_box.grid(row=1, column=1)
+item_box = Entry(add_frame)
+item_box.grid(row=1, column=2)
+quantity_box = Entry(add_frame)
+quantity_box.grid(row=1, column=3)
 
 # Append Button
 
