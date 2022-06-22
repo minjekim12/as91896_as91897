@@ -16,9 +16,14 @@ to delete if they are moving on.
 
 
 # Import Tkinter and Submodules
+from os import remove
+from this import d
 from tkinter import *
 from tkinter import ttk
-from tracemalloc import start
+from tkinter import font
+from tkinter.font import Font
+from turtle import bgcolor
+from unicodedata import name
 
 
 # Program settings
@@ -48,23 +53,43 @@ start_button = Button(root, image=start_image, command=start, height=95, width=2
 start_button.pack(pady=220)
     # TODO: Place the start button lower on the screen without cutting off any of the image
 
-
-# Create a ttk.Treeview widget 
-
-
+# Create a treeview widget
 #  ↳ Selecting a theme 
 
-#  ↳ Create columns for the Treeview function
+"""style = ttk.Style()
 
-#  ↳ Format columns
+style.theme_use("aqua")
+style.configure("Treeview", 
+    background="#f0f1fc",
+    foreground="black",
+    rowheight=25,
+    fieldbackground="#f0f1fc",
+    )
 
-#  ↳ Create headings
+style.map("Treeview", 
+    background=[('selected','#5c66b5')])"""
 
+columns = ('#0', 'Name', 'Reciept', 'Item', 'Quantity')
+
+# Define tree
+
+tree = ttk.Treeview(root, columns=columns, show='headings')
+
+# Create headings
+tree.heading("#0", text=" ")
+tree.heading("Name", text="Full Name")
+tree.heading("Reciept", text="Reciept Number")
+tree.heading("Item", text="Item")
+tree.heading("Quantity", text="Quantity")
+
+tree.pack(pady=20)
 
 # Define a frame for displaying entry boxes
 
 
+
 #  ↳ Create labels
+
 
 #  ↳ Create entry boxes
 
