@@ -133,6 +133,16 @@ item_box.grid(row=1, column=2)
 quantity_box = Entry(add_frame)
 quantity_box.grid(row=1, column=3)
 
+# Create error labels
+name_box_error = Label(add_frame)
+name_box_error.grid(row = 2, column=0)
+reciept_box_error = Label(add_frame)
+reciept_box_error.grid(row = 2, column=1)
+item_box_error = Label(add_frame)
+item_box_error.grid(row = 2, column=2)
+quantity_box_error = Label(add_frame)
+quantity_box_error.grid(row = 2, column=3)
+
 # Append Button
 
 
