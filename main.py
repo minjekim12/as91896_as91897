@@ -23,7 +23,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import font
 from tkinter.font import Font
-from turtle import bgcolor
+from turtle import back, bgcolor
 from unicodedata import name
 from tkinter import messagebox
 
@@ -31,6 +31,7 @@ from tkinter import messagebox
 # Program settings
 root = Tk()
 root.title("Julie's Party Hire List")
+root.config(background="#202345")
 root.geometry("800x600")
 count = 0
 
@@ -108,40 +109,40 @@ my_tree.heading("Quantity", text="Quantity", anchor=CENTER)
 my_tree.pack(pady=20)
 
 # Define a frame for displaying entry boxes
-add_frame = Frame(root)
+add_frame = Frame(root, bg="#202345")
 add_frame.pack()
 
 #  ↳ Create labels
-nl = Label(add_frame, text="Full Name", font="Helvetica") # nl = Name Label
+nl = Label(add_frame, text="Full Name", font=labelfont, fg="White", bg="#202345") # nl = Name Label
 nl.grid(row=0, column=0)
 
-rl = Label(add_frame, text="Reciept Number", font="Helvetica")
+rl = Label(add_frame, text="Reciept Number", font=labelfont, fg="White", bg="#202345")
 rl.grid(row=0, column=1)
 
-il = Label(add_frame, text="Item", font="Helvetica")
+il = Label(add_frame, text="Item", font=labelfont, fg="White", bg="#202345")
 il.grid(row=0, column=2)
 
-ql = Label(add_frame, text="Quantity", font="Helvetica")
+ql = Label(add_frame, text="Quantity", font=labelfont, fg="White", bg="#202345")
 ql.grid(row=0, column=3)
 
 #  ↳ Create entry boxes
-name_box = Entry(add_frame)
+name_box = Entry(add_frame, font=entryfont)
 name_box.grid(row=1, column=0)
-reciept_box = Entry(add_frame)
+reciept_box = Entry(add_frame, font=entryfont)
 reciept_box.grid(row=1, column=1)
-item_box = Entry(add_frame)
+item_box = Entry(add_frame, font=entryfont)
 item_box.grid(row=1, column=2)
-quantity_box = Entry(add_frame)
+quantity_box = Entry(add_frame, font=entryfont)
 quantity_box.grid(row=1, column=3)
 
 # Create error labels
-name_box_error = Label(add_frame)
+name_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
 name_box_error.grid(row = 2, column=0)
-reciept_box_error = Label(add_frame)
+reciept_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
 reciept_box_error.grid(row = 2, column=1)
-item_box_error = Label(add_frame)
+item_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
 item_box_error.grid(row = 2, column=2)
-quantity_box_error = Label(add_frame)
+quantity_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
 quantity_box_error.grid(row = 2, column=3)
 
 def check_add_record_validity():
