@@ -6,7 +6,7 @@
 Julie's Party Hire
 This program will help keep track of which items are currently 
 being hired with information such as the customer's full name,
-reciept number, item name and quantity. The user can choose rows 
+receipt number, item name and quantity. The user can choose rows 
 on the hire list to delete once items are returned.
 
 The program also allows a group to delete their row by choosing which row
@@ -90,19 +90,19 @@ style.map('Treeview',
 my_tree = ttk.Treeview(root)
 
 #define our column
-my_tree['columns'] = ("Name", "Reciept", "Item", "Quantity")
+my_tree['columns'] = ("Name", "Receipt", "Item", "Quantity")
 
 # formatte our columns
 my_tree.column("#0", width=0, stretch=NO)
 my_tree.column("Name", anchor=CENTER, width=150)
-my_tree.column("Reciept", anchor=CENTER, width=150)
+my_tree.column("Receipt", anchor=CENTER, width=150)
 my_tree.column("Item", anchor=CENTER, width=150)
 my_tree.column("Quantity", anchor=CENTER, width=150)
 
 # Create headings
 my_tree.heading("#0", text=" ", anchor=CENTER)
 my_tree.heading("Name", text="Full Name",anchor=CENTER)
-my_tree.heading("Reciept", text="Reciept Number", anchor=CENTER)
+my_tree.heading("Receipt", text="Receipt Number", anchor=CENTER)
 my_tree.heading("Item", text="Item", anchor=CENTER)
 my_tree.heading("Quantity", text="Quantity", anchor=CENTER)
 
@@ -116,7 +116,7 @@ add_frame.pack()
 nl = Label(add_frame, text="Full Name", font=labelfont, fg="White", bg="#202345") # nl = Name Label
 nl.grid(row=0, column=0)
 
-rl = Label(add_frame, text="Reciept Number", font=labelfont, fg="White", bg="#202345")
+rl = Label(add_frame, text="Receipt Number", font=labelfont, fg="White", bg="#202345")
 rl.grid(row=0, column=1)
 
 il = Label(add_frame, text="Item", font=labelfont, fg="White", bg="#202345")
@@ -128,8 +128,8 @@ ql.grid(row=0, column=3)
 #  ↳ Create entry boxes
 name_box = Entry(add_frame, font=entryfont)
 name_box.grid(row=1, column=0)
-reciept_box = Entry(add_frame, font=entryfont)
-reciept_box.grid(row=1, column=1)
+receipt_box = Entry(add_frame, font=entryfont)
+receipt_box.grid(row=1, column=1)
 item_box = Entry(add_frame, font=entryfont)
 item_box.grid(row=1, column=2)
 quantity_box = Entry(add_frame, font=entryfont)
@@ -138,8 +138,8 @@ quantity_box.grid(row=1, column=3)
 # Create error labels
 name_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
 name_box_error.grid(row = 2, column=0)
-reciept_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
-reciept_box_error.grid(row = 2, column=1)
+receipt_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
+receipt_box_error.grid(row = 2, column=1)
 item_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
 item_box_error.grid(row = 2, column=2)
 quantity_box_error = Label(add_frame, font=errorfont, fg="Red", bg="#202345")
@@ -161,15 +161,15 @@ def check_add_record_validity():
         # set allValid to False
         allValid = False
 
-    reciept_box_input = reciept_box.get()
-    if reciept_box_input == '':
+    receipt_box_input = receipt_box.get()
+    if receipt_box_input == '':
 
-        reciept_box_error.config(text="This field is required")
+        receipt_box_error.config(text="This field is required")
 
         allValid = False
-    elif not reciept_box_input.strip().isdigit():
+    elif not receipt_box_input.strip().isdigit():
 
-        reciept_box_error.config(text="Please only use numbers")
+        receipt_box_error.config(text="Please only use numbers")
         allValid = False
     
     if item_box.get() == '':
@@ -195,7 +195,7 @@ def check_add_record_validity():
 
 def clear_all_error_labels():
     name_box_error.config(text="")
-    reciept_box_error.config(text="")
+    receipt_box_error.config(text="")
     item_box_error.config(text="")
     quantity_box_error.config(text="")
 
@@ -208,12 +208,12 @@ def clear_all_error_labels():
 
 def add_record():
     global count
-    my_tree.insert(parent='', index='end', iid=count, text=" ", values=(name_box.get(), reciept_box.get(), item_box.get(), quantity_box.get()))
+    my_tree.insert(parent='', index='end', iid=count, text=" ", values=(name_box.get(), receipt_box.get(), item_box.get(), quantity_box.get()))
     count += 1
 
     # clear boxes
     name_box.delete(0, END)
-    reciept_box.delete(0, END)
+    receipt_box.delete(0, END)
     item_box.delete(0, END)
     quantity_box.delete(0, END)
 
