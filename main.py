@@ -143,20 +143,66 @@ item_box_error.grid(row = 2, column=2)
 quantity_box_error = Label(add_frame)
 quantity_box_error.grid(row = 2, column=3)
 
-# Append Button
+def check_add_record_validity():
+    clear_all_error_labels()
+    
+    # define variable to check validity of fields
+    allValid = True
+    
+    # check if name is empty
+
+    
+    if name_box.get() == '':
+        # make name entry field red
+        name_box_error.config(text="This field is required")
+
+        # set allValid to False
+        allValid = False
+
+    reciept_box_input = reciept_box.get()
+    if reciept_box_input == '':
+
+        reciept_box_error.config(text="This field is required")
+
+        allValid = False
+    elif not reciept_box_input.strip().isdigit():
+
+        reciept_box_error.config(text="Please only use numbers")
+        allValid = False
+    
+    if item_box.get() == '':
+
+        item_box_error.config(text="This field is required")
+        allValid = False
+    quantity_box_input = quantity_box.get()
+    if quantity_box_input == '':
+
+        quantity_box_error.config(text="This field is required")
+
+        allValid = False
+    elif not quantity_box_input.strip().isdigit():
+
+        quantity_box_error.config(text="Please only use numbers")
+        allValid = False
+
+    if allValid == True:
+        add_record()
+    else:
+        return
+
+
+def clear_all_error_labels():
+    name_box_error.config(text="")
+    reciept_box_error.config(text="")
+    item_box_error.config(text="")
+    quantity_box_error.config(text="")
 
 
 
-#  ↳ Define append_details
 
 
-#  ↳ Add append button
 
-
-# Print Button
-
-
-#  ↳ Define print_details
+#  ↳ Define add_record
 
 def add_record():
     global count
@@ -173,8 +219,9 @@ def add_record():
 
 
 #  ↳ Add print button
-print_button = Button(root, text="Add Record", command=add_record)
-print_button.pack(pady=20)
+add_record_button = Button(root, text="Add Record", font=buttonfont, command=check_add_record_validity)
+add_record_button.config(width=16)
+add_record_button.pack(pady=20)
 
 # Remove selected rows button
 
