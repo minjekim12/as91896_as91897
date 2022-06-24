@@ -25,6 +25,7 @@ from tkinter import font
 from tkinter.font import Font
 from turtle import bgcolor
 from unicodedata import name
+from tkinter import messagebox
 
 
 # Program settings
@@ -214,8 +215,18 @@ def add_record():
     reciept_box.delete(0, END)
     item_box.delete(0, END)
     quantity_box.delete(0, END)
-# remove all records
 
+
+
+def remove_all():
+    for record in my_tree.get_children():
+        my_tree.delete(record)
+
+#remove all rows selected
+def remove_selected():
+    x = my_tree.selection()
+    for record in x:
+        my_tree.delete(record)
 
 
 #  ↳ Add print button
@@ -223,24 +234,28 @@ add_record_button = Button(root, text="Add Record", font=buttonfont, command=che
 add_record_button.config(width=16)
 add_record_button.pack(pady=20)
 
-# Remove selected rows button
+
+#define remove all confirmation message box
+def remove_all_confirm():
+    if messagebox.askokcancel('WARNING', 'This cannot be undone. Are you sure?', icon="warning") == True:
+        remove_all()
+    else:
+        return  
 
 
-#  ↳ Define remove_selected
-
-#  ↳ Add remove selection button
-
-#  ↳ Add messagebox to warn user
-
-
-# Remove ALL rows button
+# remove one
+remove_selected_button = Button(root, text="Remove all selected", font=buttonfont, command=remove_selected)
+remove_selected_button.config(width=16)
+remove_selected_button.pack()
 
 
-#  ↳ Define remove_all
 
-#  ↳ Add remove ALL button
+# remove all
+remove_all_button = Button(root, text="Remove all records", font=buttonfont, fg="Red", command=remove_all_confirm)
+remove_all_button.config(width=16)
+remove_all_button.pack(pady=20)
 
-#  ↳ Add messagebiox to warn user
+
 
 
 # Quit Button
