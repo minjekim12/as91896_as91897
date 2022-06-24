@@ -31,17 +31,44 @@ from unicodedata import name
 root = Tk()
 root.title("Julie's Party Hire List")
 root.geometry("800x600")
-
 count = 0
 
 
-
 # Define customized fonts
+labelfont = Font(
+    family="Avenir",
+    size = 16,
+    weight="bold")
+
+entryfont = Font(
+    family="Avenir",
+    size = 12,
+    weight="normal")
+
+listfont = Font(
+    family="Avenir",
+    size = 13,
+    weight="normal")
+
+errorfont = Font(
+    family="Avenir",
+    size = 12,
+    weight="bold")
+
+headingfont = Font(
+    family="Avenir",
+    size = 13,
+    weight="bold")
+
+buttonfont = Font(
+    family="Avenir",
+    size = 13,
+    weight="bold")
 
 # Create a treeview widget
 #  ↳ Selecting a theme 
 
-"""style = ttk.Style()
+style = ttk.Style()
 
 style.theme_use("aqua")
 style.configure("Treeview", 
@@ -52,7 +79,7 @@ style.configure("Treeview",
     )
 
 style.map("Treeview", 
-    background=[('selected','#5c66b5')])"""
+    background=[('selected','#5c66b5')])
 
 columns = ('#0', 'Name', 'Reciept', 'Item', 'Quantity')
 
