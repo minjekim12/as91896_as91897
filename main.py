@@ -67,7 +67,6 @@ buttonfont = Font(
 
 # Create a treeview widget
 #  ↳ Selecting a theme 
-
 style = ttk.Style()
 
 style.theme_use("aqua")
@@ -76,25 +75,36 @@ style.configure("Treeview",
     foreground="black",
     rowheight=25,
     fieldbackground="#f0f1fc",
+    font=listfont
     )
+style.configure("Treeview.Heading", font=headingfont)
 
-style.map("Treeview", 
-    background=[('selected','#5c66b5')])
+style.map('Treeview',
+    background=[('selected', '#5c66b5')])
 
-columns = ('#0', 'Name', 'Reciept', 'Item', 'Quantity')
 
 # Define tree
 
-tree = ttk.Treeview(root, columns=columns, show='headings')
+my_tree = ttk.Treeview(root)
+
+#define our column
+my_tree['columns'] = ("Name", "Reciept", "Item", "Quantity")
+
+# formatte our columns
+my_tree.column("#0", width=0, stretch=NO)
+my_tree.column("Name", anchor=CENTER, width=150)
+my_tree.column("Reciept", anchor=CENTER, width=150)
+my_tree.column("Item", anchor=CENTER, width=150)
+my_tree.column("Quantity", anchor=CENTER, width=150)
 
 # Create headings
-tree.heading("#0", text=" ")
-tree.heading("Name", text="Full Name")
-tree.heading("Reciept", text="Reciept Number")
-tree.heading("Item", text="Item")
-tree.heading("Quantity", text="Quantity")
+my_tree.heading("#0", text=" ", anchor=CENTER)
+my_tree.heading("Name", text="Full Name",anchor=CENTER)
+my_tree.heading("Reciept", text="Reciept Number", anchor=CENTER)
+my_tree.heading("Item", text="Item", anchor=CENTER)
+my_tree.heading("Quantity", text="Quantity", anchor=CENTER)
 
-tree.pack(pady=20)
+my_tree.pack(pady=20)
 
 # Define a frame for displaying entry boxes
 add_frame = Frame(root)
@@ -140,7 +150,7 @@ quantity_box.grid(row=1, column=3)
 
 def add_record():
     global count
-    tree.insert(parent='', index='end', iid=count, text=" ", values=(name_box.get(), reciept_box.get(), item_box.get(), quantity_box.get()))
+    my_tree.insert(parent='', index='end', iid=count, text=" ", values=(name_box.get(), reciept_box.get(), item_box.get(), quantity_box.get()))
     count += 1
 
     # clear boxes
