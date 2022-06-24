@@ -38,25 +38,6 @@ count = 0
 
 # Define customized fonts
 
-
-# Start Page 
-
-
-#  ↳ Define START 
-"""def start():
-    NONE
-    # I left this command to do nothing for now. 
-
-#  ↳ Create label to display name of the program
-
-#  ↳ Define image for start button
-start_image = PhotoImage(file="Resources/start2.png")
-
-#  ↳ Create start button
-start_button = Button(root, image=start_image, command=start, height=95, width=225)
-start_button.pack(pady=220)"""
-    # TODO: Place the start button lower on the screen without cutting off any of the image
-
 # Create a treeview widget
 #  ↳ Selecting a theme 
 
